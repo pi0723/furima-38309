@@ -33,7 +33,7 @@
 | condition_id | integer    | null: false                    |
 | postage_id   | integer    | null: false                    |
 | area_id      | integer    | null: false                    |
-| day_id       | integer    | null: false                    |
+| days_id       | integer    | null: false                    |
 
 ## Association
 
@@ -46,7 +46,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 - belongs_to :condition
 - belongs_to :postage
 - belongs_to :area
-- belongs_to :day
+- belongs_to :days
 
 
 
