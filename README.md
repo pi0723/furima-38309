@@ -23,17 +23,17 @@
 
 ## items テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| name         | string     | null: false                    |
-| explanation  | text       | null: false                    |
-| price        | integer    | null: false                    |
-| user         | references | null: false, foreign_key: true |
-| category_id  | integer    | null: false                    |
-| condition_id | integer    | null: false                    |
-| postage_id   | integer    | null: false                    |
-| area_id      | integer    | null: false                    |
-| days_id       | integer    | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| explanation      | text       | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
+| category_id      | integer    | null: false                    |
+| condition_id     | integer    | null: false                    |
+| postage_id       | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
+| delivery_time_id | integer    | null: false                    |
 
 ## Association
 
@@ -46,7 +46,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 - belongs_to :condition
 - belongs_to :postage
 - belongs_to :area
-- belongs_to :days
+- belongs_to :delivery_time
 
 
 
@@ -68,24 +68,20 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 
 ## destinations テーブル
 
-| Column             | Type    | Option      |
-| ------------------ | ------- | ----------- |
-| post_code          | string  | null: false |
-| city               | string  | null: false |
-| address            | string  | null: false |
-| building           | string  |             |
-| phone              | string  | null: false |
-| prefecture_id      | integer | null: false |
+| Column             | Type       | Option                         |
+| ------------------ | ---------- | ------------------------------ |
+| post_code          | string     | null: false                    |
+| city               | string     | null: false                    |
+| address            | string     | null: false                    |
+| building           | string     |                                |
+| phone              | string     | null: false                    |
+| area_id            | integer    | null: false                    |
+| order              | references | null: false, foreign_key: true |
 
 
 ## Association
 
 - belongs_to  :order
-
-extend ActiveHash::Associations::ActiveRecordExtensions
-
-- belongs_to :prefecture
-
 
 
 
