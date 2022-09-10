@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
@@ -7,13 +8,14 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :delivery_time
 
-  validates :name, presence: true
+  validates :name,        presence: true
   validates :explanation, presence: true
-  validates :price, presence: true
-  validates :category_id, numericality:      { other_than: 1, message: "can't be blank" }
-  validates :condition_id, numericality:     { other_than: 1, message: "can't be blank" }
-  validates :postage_id, numericality:       { other_than: 1, message: "can't be blank" }
-  validates :area_id, numericality:          { other_than: 1, message: "can't be blank" }
+  validates :price,       presence: true
+  validates :category_id,      numericality: { other_than: 1, message: "can't be blank" }
+  validates :condition_id,     numericality: { other_than: 1, message: "can't be blank" }
+  validates :postage_id,       numericality: { other_than: 1, message: "can't be blank" }
+  validates :area_id,          numericality: { other_than: 1, message: "can't be blank" }
   validates :delivery_time_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :image,       presence: true 
 
 end
