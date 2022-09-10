@@ -9,8 +9,8 @@ class Area < ActiveHash::Base
     { id: 7,  name: '山形' },
     { id: 8,  name: '福島' },
     { id: 9,  name: '茨城' },
-    { id: 10, name: '栃木' }
-    { id: 11, name: '群馬' }
+    { id: 10, name: '栃木' },
+    { id: 11, name: '群馬' },
     { id: 12, name: '埼玉' },
     { id: 13, name: '千葉' },
     { id: 14, name: '東京' },
@@ -20,8 +20,8 @@ class Area < ActiveHash::Base
     { id: 18, name: '石川' },
     { id: 19, name: '福井' },
     { id: 20, name: '山梨' },
-    { id: 21, name: '長野' }
-    { id: 22, name: '岐阜' }
+    { id: 21, name: '長野' },
+    { id: 22, name: '岐阜' },
     { id: 23, name: '静岡' },
     { id: 24, name: '愛知' },
     { id: 25, name: '三重' },
@@ -31,8 +31,8 @@ class Area < ActiveHash::Base
     { id: 29, name: '兵庫' },
     { id: 30, name: '奈良' },
     { id: 31, name: '和歌山' },
-    { id: 32, name: '鳥取' }
-    { id: 33, name: '島根' }
+    { id: 32, name: '鳥取' },
+    { id: 33, name: '島根' },
     { id: 34, name: '岡山' },
     { id: 35, name: '広島' },
     { id: 36, name: '山口' },
@@ -42,11 +42,11 @@ class Area < ActiveHash::Base
     { id: 40, name: '高知' },
     { id: 41, name: '福岡' },
     { id: 42, name: '佐賀' },
-    { id: 43, name: '長崎' }
-    { id: 44, name: '熊本' }
+    { id: 43, name: '長崎' },
+    { id: 44, name: '熊本' },
     { id: 45, name: '大分' },
     { id: 46, name: '宮崎' },
-    { id: 47, name: '鹿児島' }
+    { id: 47, name: '鹿児島' },
     { id: 48, name: '沖縄' }
   ]
 
