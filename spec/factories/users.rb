@@ -13,6 +13,5 @@ FactoryBot.define do
     read_last              { person.last.katakana }
     read_first             { person.first.katakana }
     birthday               { Faker::Date.birthday }
-    
   end
 end
