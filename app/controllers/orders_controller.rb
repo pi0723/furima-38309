@@ -27,18 +27,15 @@ class OrdersController < ApplicationController
 
   def none_or_self
     @item = Item.find(params[:item_id])
-    if @item.order.present? || current_user.id == @item.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.order.present? || current_user.id == @item.user_id
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: order_params[:token],
-        currency: 'jpy'
-      )
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: order_params[:token],
+      currency: 'jpy'
+    )
   end
-
 end

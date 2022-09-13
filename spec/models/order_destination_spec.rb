@@ -11,7 +11,7 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination).to be_valid
       end
       it 'buildingは空でも保存できること' do
-        @order_destination.building =''
+        @order_destination.building = ''
         expect(@order_destination).to be_valid
       end
     end
@@ -23,14 +23,14 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include("Post code can't be blank")
       end
       it '郵便番号は半角のハイフンを含んでいないと保存できないこと' do
-        @order_destination.post_code = 1234567
+        @order_destination.post_code = 1_234_567
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order_destination.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it '郵便番号が半角の数字でないと保存できないこと' do
         @order_destination.post_code = '１２３−４５６７'
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order_destination.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it '都道府県を選択していないと保存できないこと' do
         @order_destination.area_id = 1
@@ -53,21 +53,21 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include("Phone can't be blank")
       end
       it '電話番号が10か11桁でないと保存できないこと' do
-        @order_destination.phone =  '01234'
+        @order_destination.phone = '01234'
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include("Phone is invalid. Input only number")
+        expect(@order_destination.errors.full_messages).to include('Phone is invalid. Input only number')
       end
       it '電話番号が全角数字だと保存できないこと' do
         @order_destination.phone = '０１２３４５６７８９'
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include("Phone is invalid. Input only number")
+        expect(@order_destination.errors.full_messages).to include('Phone is invalid. Input only number')
       end
       it '電話番号が半角の-を含んでいると保存できないこと' do
         @order_destination.phone = '080-1234-1234'
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include("Phone is invalid. Input only number")
+        expect(@order_destination.errors.full_messages).to include('Phone is invalid. Input only number')
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @order_destination.token = nil
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Token can't be blank")
@@ -85,4 +85,3 @@ RSpec.describe OrderDestination, type: :model do
     end
   end
 end
-
