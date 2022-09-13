@@ -1,6 +1,6 @@
 class OrderDestination
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :post_code, :city, :address, :building, :phone, :area_id, :order_id
+  attr_accessor :user_id, :item_id, :post_code, :city, :address, :building, :phone, :area_id, :token
 
 
   with_options presence: true do
@@ -10,7 +10,6 @@ class OrderDestination
     validates :city
     validates :address
     validates :phone, format: {with: /\A\d{10,11}+\z/, message: 'is invalid. Input only number'}
-    validates :order_id
   end
   validates :area_id, numericality: {other_than: 0, message: "can't be blank"}
 
