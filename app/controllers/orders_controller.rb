@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
-  before_action :none_or_self
+  before_action :none_or_self, only: [:index, :create]
 
   def index
     @order_destination = OrderDestination.new
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 
   def none_or_self
     @item = Item.find(params[:item_id])
-    if @item.order.present? || current_user.id = @item.user_id
+    if @item.order.present? || current_user.id == @item.user_id
       redirect_to root_path
     end
   end

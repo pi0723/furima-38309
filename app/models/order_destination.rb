@@ -12,7 +12,7 @@ class OrderDestination
     validates :phone, format: {with: /\A\d{10,11}+\z/, message: 'is invalid. Input only number'}
     validates :token
   end
-  validates :area_id, numericality: {other_than: 0, message: "can't be blank"}
+  validates :area_id, numericality: {other_than: 1, message: "can't be blank"}
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
